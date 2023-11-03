@@ -3,7 +3,20 @@ const router = express.Router()
 const Author = require('../Models/author')  
 
 /// All authors route
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    let searchOptions = {}
+    if (req.query.name != null && req.query.name !== ''){ ///req.query because is a GET request /// req.query.name because is the name of the input in the form /// if empty shows all authors
+        searchOptions.name = new RegExp(req.query.name, 'i') /// i means case insensitive /// RegExp searches for a partial match
+    }
+    try{
+        const authors = await Author.find(searchOptions)
+        res.render('authors/index', {
+            authors: authors,   
+            searchOptions: req.query
+        })
+    } catch{
+        res.redirect('/')
+    }
     res.render('authors/index')
 })
 
