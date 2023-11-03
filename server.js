@@ -11,7 +11,7 @@ const indexRouter = require('./Routes/index')
 const authourRouter = require('./Routes/authors')
 
 app.set('view engine', 'ejs')
-app.set('views', __dirname + '/Views')
+app.set('views', './Views')
 app.set('layout', 'Layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('Public'))
