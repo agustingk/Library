@@ -10,20 +10,20 @@ router.get('/', async (req, res) => {
     }
     try{
         const authors = await Author.find(searchOptions)
-        res.render('authors/index', {
+        res.render('Authors/index', {
             authors: authors,   
             searchOptions: req.query
         })
     } catch{
         res.redirect('/')
     }
-    res.render('authors/index')
+    res.render('Authors/index')
 })
 
 
 //// New author route
 router.get('/new', (req, res) => {
-    res.render('authors/new', {author:new Author()})
+    res.render('Authors/new', {author:new Author()})
 })
 
 
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
         const newAuthor = await author.save()
         res.redirect(`Authors`)
     } catch{
-        res.render('authors/new', {
+        res.render('Authors/new', {
             author: author,
             errorMessage: 'Error creating Author'
         })
