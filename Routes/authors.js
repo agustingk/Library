@@ -37,12 +37,12 @@ router.post('/', (req, res) => {
 
     author.save().
         then((newAuthor) => {
-            res.render('authors')
+            res.redirect(`Authors`)
         }).
         catch((err) => {
             res.render('authors/new', {
                 author: author,
-                errorMessage: 'Error Creating Author...'
+                errorMessage: 'Error creating Author'
         })
     })
 })
