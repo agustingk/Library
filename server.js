@@ -15,7 +15,9 @@ app.set('views', __dirname + '/Views')
 app.set('layout', 'Layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('Public'))
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
+//app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
