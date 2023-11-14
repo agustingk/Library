@@ -49,7 +49,7 @@ router.get('/:id', async (req, res) => {
     try{
         const author = await Author.findById(req.params.id)
         const books = await Book.find({author: author.id}).limit(6).exec() ///limit(6) means that we only want to show 6 books
-        res.render('authors/show', {
+        res.render('Authors/show', {
             author: author,
             booksByAuthor: books
         })

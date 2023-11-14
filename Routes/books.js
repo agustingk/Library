@@ -75,6 +75,16 @@ router.post('/', async (req, res) => { //// upload.single('cover') is the middle
 //     })
 // }
 
+router.get('/:id', async (req, res) => {
+    try{
+        const book = await Book.findById(req.params.id).populate('author').exec() ///populate('author') is to get the author name instead of the author id ///exec() is to execute the query
+        res.render('Books/show', {book: book})
+    }
+    catch{
+        res.redirect('/')
+    }
+})
+
 async function renderNewPage(res, book, hasError = false) {
     try {
         const authors = await Author.find({})
