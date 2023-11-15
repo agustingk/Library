@@ -1,11 +1,11 @@
 <div>
     <label>Title</label>
-    <input type="text" name="title" value="<%= book.title %>">
+    <input type="text" name="title" value="<%= book.title %>" required>
 </div>
 
 <div>
     <label>Author</label>
-    <select name="author">
+    <select name="author" required>
         <% authors.forEach(author=> { %>
             <% if (author.id == book.author) { %>
                 <option selected label="<%= author.name %>" value="<%= author.id %>">
@@ -18,13 +18,13 @@
 
 <div>
     <label>Publish Date</label>
-    <input type="date" name="publishDate"
-        value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0]%>">
+    <input type="date" name="publishDate" 
+        value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0]%>" required>
 </div>
 
 <div>
     <label>Page Count</label>
-    <input type="number" name="pageCount" min="1" value="<%= book.pageCount %>">
+    <input type="number" name="pageCount" min="1" value="<%= book.pageCount %>" required>
 </div>
 
 <div>

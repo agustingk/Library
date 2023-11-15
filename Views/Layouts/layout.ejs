@@ -19,8 +19,12 @@
     <title>Library</title>
 </head>
 <body>
-    <%- include('../Partials/header.ejs') %>
-    <%- include('../Partials/errorMessage.ejs') %>
-    <%- body %>
+    <div class="container">
+        <%- include('../Partials/header.ejs') %>
+        <div class="inner-container">
+            <%- include('../Partials/errorMessage.ejs') %>
+            <%- body %>
+        </div>
+    </div>
 </body>
 </html>

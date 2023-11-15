@@ -156,11 +156,13 @@ router.delete('/:id', async (req, res) => {
     let book
     try{
         book = await Book.findById(req.params.id)
-        await book.remove()
+        await book.remove()///this function does not exist in the documentation
+        await book.deleteOne()///this function does exist
         res.redirect('/Books')
     }
-    catch{
+    catch(e){
         if(book != null){
+            console.log(e)
             res.render('Books/show', {
                 book: book,
                 errorMessage: 'Could not remove book'
