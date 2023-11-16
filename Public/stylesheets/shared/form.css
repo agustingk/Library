@@ -1,6 +1,6 @@
 :root{
     --form-label-font-size: 1.2rem;
-    --form-input-background-color: hsl(var(--color-base-hue), 100%, 31%);
+    --form-input-background-color: hsl(var(--color-base-hue), 100%, 20%);
     --form-input-border-color: hsl(var(--color-base-hue), 100%, 50%);
     --form-input-border-color-light: hsl(var(--color-base-hue), 100%, 70%);
 
@@ -19,7 +19,7 @@
     flex-basis: 0;
 }
 
-.form-item :first-child{
+.form-item:first-child{
     margin-left: 0;
 }
 
