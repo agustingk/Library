@@ -1,6 +1,8 @@
 <h2 class="page-header">New Book</h2>
 <form action="/Books" method="POST"><!-- enctype is a special attribute that allows us to send files through a form  -->
     <%- include('_form_fields') %>
-    <a href="/Books">Cancel</a>
-    <button type="submit">Create</button>
+    <div class="form-row form-row-end btn-row">
+        <a class="btn btn-danger" href="/Books">Cancel</a>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </div>
 </form>
